@@ -16,19 +16,19 @@
 
 SimulatedAnnealing의 수도 코드는 다음과 같다.
 
-1.  임의의 후보해 s를 선택한다.
-2.  초기 T를 정한다.
-3.  repeat
-4.     for i = 1 to kt {
-5.         s의 이웃해 중에서 랜덤하게 하나의 해 s'를 선택한다.
-6.         d = (s'의 값) = (s의 값)
-7.         if (d < 0)
-8.             s = s'
-9.         else
-10.             q = (0,1 사이의 랜덤한 수)
-11.             if (q < p)  s = s'
-12.     }
-13.     T = aT
+1. 임의의 후보해 s를 선택한다.
+2. 초기 T를 정한다.
+3. repeat
+4. ​    for i = 1 to kt {
+5. ​        s의 이웃해 중에서 랜덤하게 하나의 해 s'를 선택한다.
+6. ​        d = (s'의 값) = (s의 값)
+7. ​        if (d < 0)
+8. ​            s = s'
+9. ​        else
+10. ​            q = (0,1 사이의 랜덤한 수)
+11. ​            if (q < p)  s = s'
+12. ​    }
+13. ​    T = aT
 14. until (종료 조건이 만족될 때까지)
 15. return s
 
@@ -128,7 +128,7 @@ public class SimulatedAnnealing {
 
 담금질 과정은 이웃해 x1을 설정해 이 값으로 얻어지는 f(x1)값을 f1으로 설정하고, f1이 f0보다 더 큰 경우 x1과 f1을 x0와 f0에 각각 대입하고 f0값을 hist 리스트에 추가하는 형식이다. 이를 통해 최종적으로 전역 최적점으로 선정된 값과 값의 변화 과정을 알 수 있다.
 
-(그림2)
+![2](https://user-images.githubusercontent.com/80510972/121697258-d72a1100-cb07-11eb-9d15-556dcf8a7dca.png)
 
 ## 4. 4차 함수의 전역 최적점
 
@@ -147,7 +147,7 @@ public class SimulatedAnnealing {
 
 의 5가지로 나눌 수 있다. 전역 최적점을 다룰 수 있는 그래프는 많지만 내가 사용한 그래프는 x^4의 계수가 음수이고, 서로 다른 극댓값을 2개 가지는 그래프를 사용했다.
 
-(그림3)
+![3](https://user-images.githubusercontent.com/80510972/121697283-de511f00-cb07-11eb-9a45-b1835a55b41c.png)
 
 ```java
 package com.company;
@@ -178,7 +178,7 @@ public class Main {
 
 나머지 코드는 똑같이 하되, 4차 함수를 입력하고 (넓은 범위에서 탐색하는 적당한 4차함수를 찾기가 힘들었음), 최댓값인 x=-3.294에의 f(x)=260.896임을 표시해 두었다. upper와 lower를 -5와 5로 변경하였다. 결과값은 다음과 같다.
 
-(그림4)
+![4](https://user-images.githubusercontent.com/80510972/121697287-dee9b580-cb07-11eb-9125-90c7e232bb94.png)
 
 위와 같이 정상적으로 전역 최적점을 찾는 것을 볼 수 있다.
 
@@ -188,7 +188,7 @@ public class Main {
 
 3차 함수 그래프가 일정 범위 내에서 양끝점 이외에 최댓값이나 최솟값을 가지는 경우는 f'(x)=0 이 서로 다른 두 실근을 가지는 경우(사인 곡선과 비슷한 모양인 경우) 밖에 없기 때문에 이러한 그래프를 사용했다.
 
-(그림5)
+![5](https://user-images.githubusercontent.com/80510972/121697259-d7c2a780-cb07-11eb-93dc-3c1bbab8fda1.png)
 
 ```java
 package com.company;
@@ -218,7 +218,7 @@ public class Main {
 
 이번에도 마찬가지로 나머지 코드는 일치하되, 함수 식과 lower, upper 값을 변경해 주었다. 결과값을 보자.
 
-(그림6)
+![6](https://user-images.githubusercontent.com/80510972/121697292-e0b37900-cb07-11eb-852b-70aeb1663e6b.png)
 
 위와 같이 정상적으로 전역 최적점을 찾는 것을 볼 수 있다.
 
@@ -226,7 +226,7 @@ public class Main {
 
 마지막 3차 함수에 대해서  Curve Fitting 후보해로 선정되는 순서에 따른 최적점까지의 Curve Fitting을 진행해보면
 
-(그림7) 
+![7](https://user-images.githubusercontent.com/80510972/121697295-e14c0f80-cb07-11eb-965e-13a82304f86e.png)
 
 다음과 같이 나타낼 수 있다.
 
